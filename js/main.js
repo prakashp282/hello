@@ -1,9 +1,6 @@
-/**
-* Template Name: DevFolio - v4.7.1
-* Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
+var SliderStatus = true;
+
 (function() {
   "use strict";
 
@@ -129,6 +126,24 @@
     }
   }, true)
 
+
+  
+	window.addEventListener('scroll', (e) => {
+		var navBar = select('.navbar-fixed-top'),
+			windowHeight = window.innerHeight - navBar.offsetHeight;
+
+		if(window.scrollY > windowHeight)
+		{
+			SliderStatus = false;
+			navBar.classList.remove("bottom");
+		}
+		else
+		{
+			SliderStatus = true;
+			navBar.classList.add("bottom");
+		}
+	});
+
   /**
    * Scrool with ofset on links with a class name .scrollto
    */
@@ -217,13 +232,14 @@
   });
 
   /**
-   * Preloader
+   * Set Data into template
    */
-  let preloader = select('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove()
-    });
-  }
+  select('#introLead').innerHTML = introLead;
+  select('#introMuted').innerHTML = introMuted;
+
+  projects.forEach( );
+  
+  
+
 
 })()
